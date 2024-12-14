@@ -66,10 +66,7 @@ class _NotesState extends State<Notes> {
                   date: DateTime.now(),
                 );
 
-                // Print the note to verify data
-                print('New note created: Title - ${newNote.title}, Note - ${newNote.note}');
-
-                // Pass the new note back to the Dashboard
+                
                 Navigator.pop(context, newNote);
               },
               child: const Text('Save Note'),

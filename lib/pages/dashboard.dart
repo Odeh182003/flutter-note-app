@@ -26,7 +26,6 @@ class _DashboardState extends State<Dashboard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Show an image and text when no notes are available
             if (_controller.notes.isEmpty)
               Column(
                 children: [
@@ -46,17 +45,15 @@ class _DashboardState extends State<Dashboard> {
                 itemBuilder: (context, index) {
                   final note = _controller.notes[index];
 
-                  // Print note data to debug
-                  print('Displaying note: Title - ${note.title}, Note - ${note.note}');
 
                   return Card(
                     elevation: 2,
                     margin: const EdgeInsets.symmetric(vertical: 5),
                     child: ListTile(
-                      title: Text(note.title),  // Display the title
-                      subtitle: Text(note.note),  // Display the note content
+                      title: Text(note.title),  
+                      subtitle: Text(note.note),  
                       trailing: Text(
-                        '${note.date.day}/${note.date.month}/${note.date.year}',  // Show the date
+                        '${note.date.day}/${note.date.month}/${note.date.year}',  
                         style: const TextStyle(fontSize: 12, color: Colors.black),
                       ),
                       onTap:(){
@@ -85,15 +82,10 @@ class _DashboardState extends State<Dashboard> {
             MaterialPageRoute(builder: (context) => const Notes()),
           );
 
-          // After adding a note, check if a note was returned
           if (newNote != null) {
-            // Add the new note to the controller
             _controller.addNote(newNote);
 
-            // Print to verify note was added to the controller
-            print('New note added: Title - ${newNote.title}, Note - ${newNote.note}');
-
-            // Trigger UI update
+            
             setState(() {});
           }
         },
